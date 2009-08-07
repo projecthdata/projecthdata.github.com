@@ -1,0 +1,84 @@
+---
+layout: master
+title: hData Frequently Asked Questions
+selected: faq
+---
+<div id="content">
+  <div id="logo">
+  	<a href="index.html"><img src="images/hData_logo.png" alt="hData Logo"></a>
+  </div>
+  <div class="faq_title"><h2>Frequently Asked Questions</h2></div>
+  <ul id="faqHeader">
+  	<li><a href="#whatIshData">What is hData?</a></li>
+  	<li><a href="#exchange">How will hData be used to exchange EHR health data?</a></li>
+  	<li><a href="#cost">How much does it cost to use hData?</a></li>
+  	<li><a href="#license">What are the open source licensing details associated with hData?</a></li>
+  	<li><a href="#submitted">Will hData be submitted to a standards organization?</a></li>
+  	<li><a href="#contribute">Can I contribute software source code to hData?</a></li>
+  	<li><a href="#standards">What standards will hData use?</a></li>
+    <li><a href="#vendor">Do I need to be an EHR vendor to use hData?</a></li>
+    <li><a href="#languages">What programming languages will hData use?</a></li>
+    <li><a href="#background">What is the background of hData?</a></li>
+    <li><a href="#significance">What is the significance of the name hData?</a></li>
+  </ul>
+  <div class="questionAnswer firstQuestion">
+  	<div class="question" id="whatIshData">What is hData?</div>
+    <p>hData is a simple XML framework for the creation, storage, and exchange of health data. The core hData specification contains three components:</p>
+  	<ol>
+      <li>hData Record Format (HRF): The HRF describes an abstract architecture of how data is stored in multiple XML documents and is organized in a hierarchy. It also contains a concrete schema for the HRF meta-data. Records conforming to the HRF are called hData Records (HDRs).</li>
+      <li>HRF Serialization: Within EHR systems, hData records may be stored in different ways. The hData specification describes a portable scheme to create an archive of the individual documents that make up the HDR. In other words, an HDR can be stored as a zip file and saved to disk and transported on portable media such as a USB thumb drive.</li>
+      <li>hData RESTful API (HRA): When the HRF is represented as a web resource, this RESTful specification allows for modifying section documents, creation of new data, record transport, and management of the entire record through a simple Web API.</li>
+    </ol>
+    <p>In addition to the above technical specification, hData uses Content Profiles (CP) to specify the actual content included in a particular hData record. These data elements address the immediate issues of continuity of care interoperability, but its scope goes well beyond this application. By including all National Quality Forum’s (NQF) 35 data elements (NQF-35) derived from the NQF Health Information Technology Expert Panel (HITEP), the initial content profile of hData is suitable as a general purpose electronic health record format.</p>
+    <p>While the hData technical specification and the initial content profile make up the core of hData, additional content profiles may be created that extend the functionality of this format, such as a lab report or an immunization record content profile.</p>
+  </div>
+  <div class="questionAnswer">
+  	<div class="question" id="exchange">How will hData be used to exchange EHR health data?</div>
+    <p>At its core, hData is a simple way of organizing data into small pieces in folders, with a corresponding set of XML Schema to describe the small pieces. Because of this simplicity, it is easy to exchange information using hData. Currently hData can exchange data through two mechanisms:</p>
+    <ol>
+      <li><a href="http://en.wikipedia.org/wiki/REST" target="_external">RESTful Services</a> - A Health IT system may provide RESTful web services to access hData.</li>
+      <li><a href="http://en.wikipedia.org/wiki/Zip_file" target="_external">Zip File</a> - All of the information to be contained in an hData Record can be Zip filed. That Zip file can then be emailed, placed on a USB thumb drive, etc.</li>
+    </ol>
+  </div>
+  <div class="questionAnswer">
+  	<div class="question" id="cost">How much does it cost to use hData?</div>
+    <p>hData is a free open source XML standards project; there is no cost to use the hData XML schema.</p>
+  </div>
+  <div class="questionAnswer">
+  	<div class="question" id="license">What are the open source licensing details associated with hData?</div>
+  	<p>hData is licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_external">Apache 2.0 open source license</a>.</p>
+  </div>
+  <div class="questionAnswer">
+  	<div class="question" id="submitted">Will hData be submitted to a standards organization?</div>
+  	<p>We will be submitting hData to a standards organization. We are careful selecting an organization that has a favorable intellectual property rights scheme. We want to guarantee royalty free access to hData. Until then, the hData standard remains the property of The MITRE Corporation, with all rights reserved.</p>
+  </div>
+  <div class="questionAnswer">
+  	<div class="question" id="contribute">Can I contribute software source code to hData?</div>
+  	<p>Code contributions will be accepted to hData as bug fixes and new feature proposals.</p>
+  </div>
+  <div class="questionAnswer">
+  	<div class="question" id="standards">What standards will hData use?</div>
+  	<p>hData is built using <a href="http://www.w3.org/XML/" target="_external">XML</a>, using <a href="http://www.w3.org/XML/Schema" target="_external">W3C XML Schema</a> to specify the grammar. The structure of hData closely resembles the <a href="http://en.wikipedia.org/wiki/OpenDocument" target="_external">OpenDocument Format</a>.</p>
+    <p>hData can be used to meet a number of health data needs, but initially, we are focusing on Continuity of Care. As such, much of the data vocabularies defined in hData model themselves after the <a href="http://en.wikipedia.org/wiki/Continuity_of_Care_Document" target="_external">HL7 CCD</a> and <a href="http://www.astm.org/Standards/E2369.htm" target="_external">ASTM CCR</a>.</p>
+  </div>
+  <div class="questionAnswer">
+  	<div class="question" id="vendor">Do I need to be an EHR vendor to use hData?</div>
+  	<p>No. hData can be used by anyone interested in working with Health IT systems. hData is designed to make implementation fast and simple. Its simple serialization format and RESTful API make hData highly portable as well. While an obvious use of hData would be to expose the information stored in an EHR System, we hope that it will ease the development of all health applications by lowering the barrier to creating and consuming health data.</p>
+  </div>
+  <div class="questionAnswer">
+  	<div class="question" id="languages">What programming languages will hData use?</div>
+    <p>hData is based on XML, so it can be used with virtually any programming language. The MITRE team is working on developer kits in <a href="http://www.ruby-lang.org/en/" target="_external">Ruby</a> and <a href="http://www.java.com/en/" target="_external">Java</a>. The hData project will gladly accept any contributions for generating or consuming hData in other programming languages.</p>
+  </div>
+  <div class="questionAnswer">
+  	<div class="question" id="background">What is the background of hData?</div>
+  	<p>Electronic documentation of health care data is currently at the heart of the U.S. national discussion on healthcare reform. Electronic health records (EHRs) have the potential to increase physician efficiency, reduce costs, and promote standardized care. However, health data exchange interoperability and other usability issues have plagued system-wide adoption and have thus limited the expected benefits. hData offers a solution to these problems by using a simple XML framework for the creation, storage, and exchange of health data.</p>
+    <p>Standards development of EHRs began with Health Level Seven (HL7) in the late 1980s. HL7, comprised of healthcare subject matter experts and information scientists, developed standards for the exchange, management, and integration of electronic healthcare information. The group first created the clinical document architecture (CDA), which was designed to address most of the documentation needs of any health care system. Consequently, this approach made the schema extremely flexible but overly complex, hard to implement interoperably, and difficult to manage. Around the same time, in a separate effort, a simplified continuity of care record (CCR)--not based on the CDA-- was created. Eventually, ASTM International, a highly regarded standards organization, adopted the CCR as its continuity of care record standard.</p>
+    <p>Later, HL7 reconciled its standards with ASTM by taking data elements from the CCR and encoding them in the CDA, resulting in a new standard called the Continuity of Care Document (CCD). The American National Standards Institute (ANSI) and its affiliated Health Information Technology Standards Panel (HITSP) recommended the CCD as an input standard for creating a national continuity of care standard. The result was initially published as the HITSP Construct 32 standard (C32), which has since expanded and grown more complex.</p>
+    <p>CDA, C32, and related standards contain a number of significant shortfalls. These include the repeated use of overly abstract data structures and underspecified implementation, including lack of normative schema, lack of a clearly profiled code system, and imprecise data types. HITSP has recognized the complexity of these existing standards and completed an effort to “streamline” documentation on how to use them. However, while this document reordering may provide some help, exchanging continuity of care information will still take place in the same overly complex format, and the entire existing HITSP framework is not always able to deliver a comprehensive, interoperable set of specifications.</p>
+    <p>hData was created to address these shortcomings. hData lowers the barrier to Health IT integration by focusing on ease of implementation.</p>
+  </div>
+  <div class="questionAnswer">
+  	<div class="question" id="significance">What is the significance of the name hData?</div>
+  	<p>hData is a contraction of “health” and “Data;” with the capital “D” emphasizing the core importance of data. The hData team's goal is to make the creation, exchange, consumption, and storage of health data simple, secure, and private. As a result, we believe better health outcomes are sure to follow.</p>
+  </div>
+</div>

@@ -1,0 +1,59 @@
+---
+layout: master
+title: L32
+selected: l32
+---
+<div>
+<div id="splitContent">
+  <div id="leftColumn">
+    <div id="logo">
+      <a href="index.html"><img src="images/hData_logo.png" alt="hData Logo"></a>
+    </div>
+    <div class="l32_title"><h2 class="l32_header">L32, a Lightweight C32 Implementation</h2></div>
+    <p>This effort provides a proof of concept to demonstrate a way for the Department of Veterans Affairs (VA) and the Department of Defense (DoD) to accelerate health data interoperability between their departments and with external partners across the full service member and veteran lifetime.  It does this by addressing some of the challenges of exchanging continuity of care information in accordance with the <a href="http://www.hitsp.org/#is" target="_external">HITSP C32 specification</a>.</p>
+    <div class="question">C32 XML Schema</div>
+    <p>The HITSP C32 Specification is a standard that addresses how to exchange continuity of care information in XML format. While this standard has been accepted by many organizations, it can be difficult to use in practice. This is due to the great variability allowed by the specification.</p>
+    <p>This effort proposes the use of a <a href="http://en.wikipedia.org/wiki/XML_Schema_(W3C)" target="_external">W3C XML Schema</a> to create a “locked down" version of the C32. That is, we will greatly reduce the number of options available to someone generating a C32 document.  We call this XML Schema, “L32”, for “Lightweight C32 Implementation”. In doing this, we will provide a resource that software developers can leverage with traditional XML tools to either create C32 documents or create software to produce, validate or consume C32 documents.   This approach should be easier than manually developing software to handle all possible permutations allowed in the C32 Specification.  Thus, the L32 is intended as one consistent, machine-interpretable implementation of the C32 specification.</p>
+    <p>Lessons learned in creating the L32 will allow us to provide feedback to <a href="http://en.wikipedia.org/wiki/HITSP" target="_external">HITSP</a> on how the C32 standard should move forward.  These lessons may also be used to develop constraints on how data should be exchanged on the <a href="http://www.hhs.gov/healthit/healthnetwork/background/" target="_external">NHIN</a>.</p>
+    <div class="question">L32 – hData Translator</div>
+    <p>With a constrained schema for the C32, we can start to integrate other approaches for sharing continuity of care data.  One of these will be hData.  This initiative prototypes a translator to map from hData to L32 and back.   A translator would allow new systems to leverage the simplicity and precision of hData internally but still share C32 conformant data over the NHIN, as required by current and proposed legislation.</p>
+  </div>
+</div>
+<div id="sidebar">
+  <div class="l32_title"><h2>L32 Documents</h2></div>
+  <ul id="l32_docs">
+    <li><p class="coming_soon">coming soon</p></li>
+  </ul>
+</div>
+<br style="clear:both;" />
+</div>
+<div id="l32Content">
+  <div class="faq_title"><h2>L32 Frequently Asked Questions</h2></div>
+  <ul id="faqHeader">
+    <li><a href="#whatIsl32">What is L32?</a></li>
+    <li><a href="#help">How will L32 help?</a></li>
+    <li><a href="#tools">Can I use standard XML tools with L32?</a></li>
+    <li><a href="#translator">What is the hData to L32 Translator?</a></li>
+    <li><a href="#whytranslator">Why an hData to L32 Translator?</a></li>
+  </ul>
+  <div class="questionAnswer firstQuestion">
+  	<div class="question" id="whatIsl32">What is L32?</div>
+    <p>L32 is intended as one consistent, machine-interpretable implementation of the <a href="http://www.hitsp.org/#is" target="_external">HITSP C32 specification</a>. The HITSP C32 Specification is a standard that addresses how to exchange continuity of care information in XML format. The L32 creates a constrained version C32 in that it greatly reduces the number of options available to someone generating a C32 document and constrains module contents to allow only relevant elements. We call this XML Schema, “L32”, for “Lightweight C32 Implementation”. L32 includes a W3C XML Schema and two XML stylesheets used to add and remove type declarations that make the XML schema more straight-forward and better able to capture the C32 constraints. </p>
+  </div>
+  <div class="questionAnswer">
+  	<div class="question" id="help">How will L32 help?</div>
+    <p>While the HITSP C32 Specification has been accepted by many organizations, it can be difficult to use in practice. This is due to the great variability allowed by the specification. The L32, as a constrained version of the C32, will make it easier for software developers to produce, validate, and consume C32 conformant documents. With a C32 XML Schema, tradition XML tools may be used to produce C32 conformant documents. Given a C32 XML Schema, traditional XML tools may also be used to generate software that may be used to produce and consume C32 instances. This is in stark contrast to the need to manually develop software to handle all the possible permutations allowed in the C32 Specification.</p>
+  </div>
+  <div class="questionAnswer">
+  	<div class="question" id="tools">Can I use standard XML tools with L32?</div>
+    <p>Yes. With a C32 XML Schema, standard XML tools may be used to develop C32 conformant instances. Also, traditional tools to generate Java code stubs and XML Schema may be used to automatically generate software to be used to produce, validate and consume C32 instances.</p>
+  </div>
+  <div class="questionAnswer">
+  	<div class="question" id="translator">What is the hData to L32 Translator?</div>
+    <p>The hData to L32 translator is a tool that maps between hData conformant instance documents and L32 conformant instance documents and translates between these formats. In other words, an hData conformant instance may be translated into an L32 conformant instance. Likewise, an L32 conformant instance may be translated into an hData conformant instance.</p>
+  </div>
+  <div class="questionAnswer">
+  	<div class="question" id="whytranslator">Why an hData to L32 Translator?</div>
+    <p>With a constrained schema for the C32, we can start to integrate other approaches for sharing continuity of care data. A translator between hData and L32 would allow new systems to leverage the simplicity and precision of hData internally but still share C32 conformant data over the <a href="http://www.hhs.gov/healthit/healthnetwork/background/" target="_external">NHIN</a>, as required by current and proposed legislation.</p>
+  </div>
+</div>

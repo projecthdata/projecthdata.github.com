@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="pragma" content="no-cache">
+    <link rel="stylesheet" href="stylesheets/main.css" type="text/css" media="screen">
+    <title>{{ page.title }}</title>
+  </head>
+  <body>
+    <div id="page">
+      <div id="header">
+        <ul>
+          <li><a href="index.html" {% if page.selected == 'index' %}class="selected"{% endif %}>Home</a></li>
+          <li><a href="faq.html" {% if page.selected == 'faq' %}class="selected"{% endif %}>FAQ</a></li>
+          <li><a href="documents.html" {% if page.selected == 'documents' %}class="selected"{% endif %}>Documents</a></li>
+          <li><a href="http://github.com/projecthdata" target="_external">Code</a></li>
+          <li><a href="glossary.html" {% if page.selected == 'glossary' %}class="selected"{% endif %}>Glossary</a></li>
+          <li><a href="l32.html" {% if page.selected == 'l32' %}class="selected"{% endif %}>L32</a></li>
+          <li><a href="about.html" {% if page.selected == 'about' %}class="selected"{% endif %}>About</a></li>
+          <li><a href="mailto:talk@projecthdata.org">Talk</a></li>
+        </ul>
+      </div>
+      {{ content }}    
+      <div id="footer">
+        <div id="footerSourceForge"><a href="http://github.com/" target="_external"><img src="images/github_icon.png" alt="GitHub Logo"></a></div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+      try {
+      var pageTracker = _gat._getTracker("UA-326562-4");
+      pageTracker._trackPageview();
+      } catch(err) {}
+    </script>
+  </body>
+</html>
