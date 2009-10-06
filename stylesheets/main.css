@@ -281,6 +281,11 @@
       padding-left:0px;
     }
 
+    .mailinglist p{
+      margin-top:0px;
+      padding-top:10px;
+      padding-bottom:5px;
+    }
 /* * Footer * */
     
     #footer {
