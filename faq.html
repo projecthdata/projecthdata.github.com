@@ -23,14 +23,13 @@ selected: faq
   </ul>
   <div class="questionAnswer firstQuestion">
   	<div class="question" id="whatIshData">What is hData?</div>
-    <p>hData is a simple XML framework for the creation, storage, and exchange of health data. The core hData specification contains three components:</p>
+    <p>hData is a simple XML framework for the creation, storage, and exchange of health data. The core hData specification contains two components:</p>
   	<ol>
       <li>hData Record Format (HRF): The HRF describes an abstract architecture of how data is stored in multiple XML documents and is organized in a hierarchy. It also contains a concrete schema for the HRF meta-data. Records conforming to the HRF are called hData Records (HDRs).</li>
-      <li>HRF Serialization: Within EHR systems, hData records may be stored in different ways. The hData specification describes a portable scheme to create an archive of the individual documents that make up the HDR. In other words, an HDR can be stored as a zip file and saved to disk and transported on portable media such as a USB thumb drive.</li>
       <li>hData RESTful API (HRA): When the HRF is represented as a web resource, this RESTful specification allows for modifying section documents, creation of new data, record transport, and management of the entire record through a simple Web API.</li>
     </ol>
-    <p>In addition to the above technical specification, hData uses Content Profiles (CP) to specify the actual content included in a particular hData record. These data elements address the immediate issues of continuity of care interoperability, but its scope goes well beyond this application. By including all National Quality Forum’s (NQF) 35 data elements (NQF-35) derived from the NQF Health Information Technology Expert Panel (HITEP), the initial content profile of hData is suitable as a general purpose electronic health record format.</p>
-    <p>While the hData technical specification and the initial content profile make up the core of hData, additional content profiles may be created that extend the functionality of this format, such as a lab report or an immunization record content profile.</p>
+    <p>In addition to the above technical specification, hData uses Content Profiles (CP) to specify the actual content included in a particular hData record. These content profiles detail what fields are required to capture an allergy or condition. The philosophy is to use simple XML documents mapped directly to existing healthcare information models.</p>
+    <p>The hData project has initially Content Profiles for continuity of care as well as lab orders and results. It is expected that Content Profiles will be submitted to standards organizations. Additionally, it is assumed that Content Profiles will be created to address different medical domains.</p>
   </div>
   <div class="questionAnswer">
   	<div class="question" id="exchange">How will hData be used to exchange EHR health data?</div>
@@ -50,7 +49,7 @@ selected: faq
   </div>
   <div class="questionAnswer">
   	<div class="question" id="submitted">Will hData be submitted to a standards organization?</div>
-  	<p>We will be submitting hData to a standards organization. We are careful selecting an organization that has a favorable intellectual property rights scheme. We want to guarantee royalty free access to hData. Until then, the hData standard remains the property of The MITRE Corporation, with all rights reserved.</p>
+  	<p>Yes. hData has been submitted to <a href="http://www.hl7.org/" target="_external">HL7</a>. It is currently under discussion in the <a href="http://wiki.hl7.org/index.php?title=ITS_WG" target="_external">ITS Work Group</a>.</p>
   </div>
   <div class="questionAnswer">
   	<div class="question" id="contribute">Can I contribute software source code to hData?</div>
