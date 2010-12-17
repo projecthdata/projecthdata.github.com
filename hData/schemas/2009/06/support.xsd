@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright 2009 The MITRE Corporation
+    Approved for Public Release: 09-3060. Distribution Unlimited.
+    See L32_ClinicalDocument.xsd for license details
+-->
+<xs:schema 
+    xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+    elementFormDefault="qualified" 
+    targetNamespace="http://projecthdata.org/hdata/schemas/2009/06/support" 
+    xmlns:support="http://projecthdata.org/hdata/schemas/2009/06/support" 
+    xmlns:core="http://projecthdata.org/hdata/schemas/2009/06/core">
+    
+    <xs:import namespace="http://projecthdata.org/hdata/schemas/2009/06/core" schemaLocation="core_data_types.xsd"/>
+    
+    <xs:element name="support">
+        <xs:annotation>
+            <xs:documentation>
+                This includes contact information such as the contact type, relationship,
+                address, phone number, email, and name.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+        <xs:sequence>
+            <xs:element name="date" type="xs:date"/>
+            <xs:element name="contactType">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="AGNT">
+                            <xs:annotation>
+                                <xs:documentation>
+                                    An entity that acts or is authorized to act on behalf of another entity.
+                                    Used to record persons that can act on behalf of the patient, for example,
+                                    someone holding a healthcare power of attorney.
+                                </xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="CAREGIVER">
+                            <xs:annotation>
+                                <xs:documentation>
+                                    A person responsible for the primary care of a patient at home.
+                                </xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="ECON">
+                            <xs:annotation>
+                                <xs:documentation>
+                                    An entity to be contacted in the event of an emergency.
+                                </xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="NOK">
+                            <xs:annotation>
+                                <xs:documentation>
+                                    An individual designated for notification as the next of kin for a given entity.
+                                </xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="PRS">
+                            <xs:annotation>
+                                <xs:documentation>
+                                    Links two people in a personal relationship. Used to describe family members
+                                    and other persons that have a personal relationship with the patient. When
+                                    this value is used, the value used for Contact Relationship below is also
+                                    constrained to the HL7 PersonalRelationshipRoleType vocabulary domain.
+                                </xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="contactRelationship" type="support:contactRelationship" minOccurs="0"/>
+            <xs:element name="contact" type="core:person"/>
+        </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:complexType name="contactRelationship">
+        <xs:annotation>
+            <xs:documentation>
+                Identifies the relationship of the contact person to the individual for which
+                this document refers. Codes are enumerated in Contact Relationship in Excel file:
+                SummaryRecordDataContentSpecification
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:restriction base="core:codedValue">
+                <xs:attribute name="code" type="xs:string" use="required"/>
+                <xs:attribute name="displayName" type="xs:string" use="optional"/>
+                <xs:attribute name="codeSystemName" type="xs:string" fixed="PersonalRelationshipRoleTypeValueSet" />
+                <xs:attribute name="codeSystem" type="xs:string" fixed="2.16.840.1.113883.1.11.19563" use="required"/>        
+            </xs:restriction>
+        </xs:complexContent>
+        
+    </xs:complexType>
+</xs:schema>

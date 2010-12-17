@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    Copyright 2009 The MITRE Corporation 
+    
+    Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. 
+    You may obtain a copy of the License at 
+    
+    http://www.apache.org/licenses/LICENSE-2.0 
+    
+    Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific 
+    language governing permissions and limitations under the License. 
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:core="http://projecthdata.org/hdata/schemas/2009/06/core"
+    targetNamespace="http://projecthdata.org/hdata/schemas/2009/06/condition"> 
+    
+    <xs:import namespace="http://projecthdata.org/hdata/schemas/2009/06/core"
+        schemaLocation="core_data_types.xsd"/>
+
+    <xs:complexType name="problemType">
+        <xs:annotation>
+            <xs:documentation>
+                This element is used to describe the type of problem/condition contained in this section. The possible values 
+                for this have been constrained to the SNOMED CT Problem Type code set provided below for reference. 
+
+                Problem Type Vocabulary 
+                SNOMED CT Terms for Problem Type SNOMED CT Code
+                Finding 404684003
+                Symptom 418799008
+                Problem 55607006
+                Complaint 409586006
+                Condition 64572001
+                Diagnosis 282291009
+                Functional limitation 248536006
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:restriction base="core:codedValue">
+                <xs:attribute name="code" use="required">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="404684003" />
+                            <xs:enumeration value="418799008" />
+                            <xs:enumeration value="55607006" />
+                            <xs:enumeration value="409586006" />
+                            <xs:enumeration value="64572001" />
+                            <xs:enumeration value="282291009" />
+                            <xs:enumeration value="248536006" />
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:attribute>
+                <xs:attribute name="displayName" use="optional">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="Finding" />
+                            <xs:enumeration value="Symptom" />
+                            <xs:enumeration value="Problem" />
+                            <xs:enumeration value="Complaint" />
+                            <xs:enumeration value="Condition" />
+                            <xs:enumeration value="Diagnosis" />
+                            <xs:enumeration value="Functional limitation" />
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:attribute>
+                <xs:attribute name="codeSystemName" type="xs:string" fixed="SNOMED CT"/>
+                <xs:attribute name="codeSystem" type="xs:string" fixed="2.16.840.1.113883.6.96" use="required"/>
+                
+            </xs:restriction>
+        </xs:complexContent>
+    </xs:complexType> 
+
+    <xs:complexType name="problemCode">
+        <xs:annotation>
+            <xs:documentation>
+                See VA/KP Problem List Subset of SNOMED CT This describes the problem. Diagnosis/Problem List is broadly 
+                defined as a series of brief statements that catalog a patient's medical, nursing, dental, social, preventative
+                and psychiatric events and issues that are relevant to that patient's healthcare (e.g., signs, symptoms, and defined conditions)
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:restriction base="core:codedValue">
+                <xs:attribute name="codeSystemName" type="xs:string" fixed="SNOMED CT"/>
+                <xs:attribute name="codeSystem" type="xs:string" fixed="2.16.840.1.113883.6.96" use="required"/>
+            </xs:restriction>
+        </xs:complexContent>
+    </xs:complexType>
+ 
+</xs:schema>
