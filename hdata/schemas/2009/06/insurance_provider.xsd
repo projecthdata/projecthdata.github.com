@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  Copyright 2009 The MITRE Corporation 
+  
+  Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. 
+  You may obtain a copy of the License at 
+  
+  http://www.apache.org/licenses/LICENSE-2.0 
+  
+  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 
+  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific 
+  language governing permissions and limitations under the License. 
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+  elementFormDefault="qualified" 
+  targetNamespace="http://projecthdata.org/hdata/schemas/2009/06/insurance_provider" 
+  xmlns:ip="http://projecthdata.org/hdata/schemas/2009/06/insurance_provider"  
+  xmlns:core="http://projecthdata.org/hdata/schemas/2009/06/core">
+  
+  <xs:import namespace="http://projecthdata.org/hdata/schemas/2009/06/core" schemaLocation="core_data_types.xsd"/>
+  <xs:include schemaLocation="insurance_provider_types.xsd"/>
+  <xs:element name="insuranceProvider">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="id" type="core:instanceIdentifier"/>
+        <xs:element name="healthInsuranceType" type="ip:healthInsuranceTypeCode" minOccurs="0"/>
+        <xs:element name="payer" type="core:actor"/>
+        <xs:element name="healthPlanCoverageDates" type="core:dateRange"/>
+        <xs:element name="patient" type="ip:patient"/>
+        <xs:element name="financialResponsibilityPartyType" type="ip:financialResponsibilityPartyType"/>
+        <xs:element name="subscriber" type="ip:subscriber"/>
+        <xs:element name="guarantorInformation" type="ip:guarantorInformation"/>
+        <xs:element name="healthPlanName" type="xs:string"/>
+        <xs:element name="informationSource" type="core:informant" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="narrative" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    Copyright 2009 The MITRE Corporation 
+    
+    Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. 
+    You may obtain a copy of the License at 
+    
+    http://www.apache.org/licenses/LICENSE-2.0 
+    
+    Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific 
+    language governing permissions and limitations under the License. 
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+    elementFormDefault="qualified" 
+    targetNamespace="http://projecthdata.org/hdata/schemas/2009/06/insurance_provider"
+    xmlns:ip="http://projecthdata.org/hdata/schemas/2009/06/insurance_provider" 
+    xmlns:core="http://projecthdata.org/hdata/schemas/2009/06/core">
+    
+    <xs:import namespace="http://projecthdata.org/hdata/schemas/2009/06/core" schemaLocation="core_data_types.xsd"/>
+ 
+    <xs:complexType name="healthInsuranceTypeCode">
+        <xs:annotation>
+            <xs:documentation>
+                The type of health plan covering the individual(HMO, PPO, POS, Medicare Part A/B, etc). 
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:restriction base="core:codedValue">
+                <xs:attribute name="code" use="required"><!-- Use code PP for self pay or pay by guarantor -->
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="12"/>
+                            <xs:enumeration value="13"/>
+                            <xs:enumeration value="14"/>
+                            <xs:enumeration value="15"/>
+                            <xs:enumeration value="16"/>
+                            <xs:enumeration value="41"/>
+                            <xs:enumeration value="42"/>
+                            <xs:enumeration value="43"/>
+                            <xs:enumeration value="47"/>
+                            <xs:enumeration value="AP"/>
+                            <xs:enumeration value="C1"/>
+                            <xs:enumeration value="CO"/>
+                            <xs:enumeration value="CP"/>
+                            <xs:enumeration value="D"/>
+                            <xs:enumeration value="DB"/>
+                            <xs:enumeration value="EP"/>
+                            <xs:enumeration value="FF"/>
+                            <xs:enumeration value="GP"/>
+                            <xs:enumeration value="HM"/>
+                            <xs:enumeration value="HN"/>
+                            <xs:enumeration value="HS"/>
+                            <xs:enumeration value="IN"/>
+                            <xs:enumeration value="IP"/>
+                            <xs:enumeration value="LC"/>
+                            <xs:enumeration value="LD"/>
+                            <xs:enumeration value="LI"/>
+                            <xs:enumeration value="LT"/>
+                            <xs:enumeration value="MA"/>
+                            <xs:enumeration value="MB"/>
+                            <xs:enumeration value="MC"/>
+                            <xs:enumeration value="MH"/>
+                            <xs:enumeration value="MI"/>
+                            <xs:enumeration value="MP"/>
+                            <xs:enumeration value="OT"/>
+                            <xs:enumeration value="PE"/>
+                            <xs:enumeration value="PL"/>
+                            <xs:enumeration value="PP"/>
+                            <xs:enumeration value="PR"/>
+                            <xs:enumeration value="PS"/>
+                            <xs:enumeration value="QM"/>
+                            <xs:enumeration value="RP"/>
+                            <xs:enumeration value="SP"/>
+                            <xs:enumeration value="TF"/>
+                            <xs:enumeration value="WC"/>
+                            <xs:enumeration value="WU"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:attribute> 
+                <xs:attribute name="displayName">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="Medicare Secondary Working Aged Beneficiary or Spouse with Employer Group Health Plan"/>
+                            <xs:enumeration value="Medicare Secondary End-Stage Renal Disease Beneficiary in the 12 month coordination period with an employer's group health plan"/>
+                            <xs:enumeration value="Medicare Secondary, No-fault Insurance including Auto is Primary"/>
+                            <xs:enumeration value="Medicare Secondary Worker's Compensation"/>
+                            <xs:enumeration value="Medicare Secondary Public Health Service (PHS)or Other Federal Agency"/>
+                            <xs:enumeration value="Medicare Secondary Black Lung"/>
+                            <xs:enumeration value="Medicare Secondary Veteran's Administration"/>
+                            <xs:enumeration value="Medicare Secondary Disabled Beneficiary Under Age 65 with Large Group Health Plan (LGHP)"/>
+                            <xs:enumeration value="Medicare Secondary, Other Liability Insurance is Primary"/>
+                            <xs:enumeration value="Auto Insurance Policy"/>
+                            <xs:enumeration value="Commercial"/>
+                            <xs:enumeration value="Consolidated Omnibus Budget Reconciliation Act (COBRA)"/>
+                            <xs:enumeration value="Medicare Conditionally Primary"/>
+                            <xs:enumeration value="Disability"/>
+                            <xs:enumeration value="Disability Benefits"/>
+                            <xs:enumeration value="Exclusive Provider Organization"/>
+                            <xs:enumeration value="Family or Friends"/>
+                            <xs:enumeration value="Group Policy"/>
+                            <xs:enumeration value="Health Maintenance Organization (HMO)"/>
+                            <xs:enumeration value="Health Maintenance Organization (HMO) - Medicare Risk"/>
+                            <xs:enumeration value="Special Low Income Medicare Beneficiary"/>
+                            <xs:enumeration value="Indemnity"/>
+                            <xs:enumeration value="Individual Policy"/>
+                            <xs:enumeration value="Long Term Care"/>
+                            <xs:enumeration value="Long Term Policy"/>
+                            <xs:enumeration value="Life Insurance"/>
+                            <xs:enumeration value="Litigation"/>
+                            <xs:enumeration value="Medicare Part A"/>
+                            <xs:enumeration value="Medicare Part B"/>
+                            <xs:enumeration value="Medicaid"/>
+                            <xs:enumeration value="Medigap Part A"/>
+                            <xs:enumeration value="Medigap Part B"/>
+                            <xs:enumeration value="Medicare Primary"/>
+                            <xs:enumeration value="Other"/>
+                            <xs:enumeration value="Property Insurance - Personal"/>
+                            <xs:enumeration value="Personal"/>
+                            <xs:enumeration value="Personal Payment (Cash - No Insurance)"/>
+                            <xs:enumeration value="Preferred Provider Organization (PPO)"/>
+                            <xs:enumeration value="Point of Service (POS)"/>
+                            <xs:enumeration value="Qualified Medicare Beneficiary"/>
+                            <xs:enumeration value="Property Insurance - Real"/>
+                            <xs:enumeration value="Supplemental Policy"/>
+                            <xs:enumeration value="Tax Equity Fiscal Responsibility Act (TEFRA)"/>
+                            <xs:enumeration value="Workers Compensation"/>
+                            <xs:enumeration value="Wrap Up Policy"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:attribute>
+                <xs:attribute name="codeSystemName" type="xs:string" fixed="X12N-1336" />
+                <xs:attribute name="codeSystem" type="xs:string" fixed="2.16.840.1.113883.6.255.1336" use="required"/>
+            </xs:restriction>
+        </xs:complexContent>
+    </xs:complexType>
+    
+    <xs:complexType name="patient">
+        <xs:complexContent>
+            <xs:extension base="core:person">
+                <xs:sequence>
+                    <xs:element name="memberId" type="core:instanceIdentifier" minOccurs="0"/>
+                    <xs:element name="patientRelationshipToSubscriber" type="ip:patientRelationshipToSubscriber"/>
+                    <xs:element name="patientDateOfBirth" type="xs:date"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    
+    <xs:complexType name="subscriber">
+        <xs:complexContent>
+            <xs:extension base="core:person">
+                <xs:sequence>
+                    <xs:element name="subscriberId" type="core:instanceIdentifier" minOccurs="0"/>
+                    <xs:element name="subscriberDateOfBirth" type="xs:date"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    
+    <xs:complexType name="financialResponsibilityPartyType">
+        <xs:annotation>
+            <xs:documentation>
+                This data element identifies the type of the financially responsible party. The code attribute
+                contains a value from the HL7 RoleClassRelationshipFormal vocabulary. When the code of the
+                encompassing act is PP, the code attribute value is GUAR or PAT to represent a guarantor or
+                self-paying patient. The code attribute is PAYOR when the code of the encompassing act is other than PP.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:restriction base="core:codedValue">
+                <xs:attribute name="code" type="xs:string" use="required"/>
+                <xs:attribute name="displayName" type="xs:string"/>
+                <xs:attribute name="codeSystemName" type="xs:string" fixed="RoleClass" />
+                <xs:attribute name="codeSystem" type="xs:string" fixed="2.16.840.1.113883.5.110"  use="required"/>
+            </xs:restriction>
+        </xs:complexContent>
+    </xs:complexType>
+    
+    <xs:complexType name="guarantorInformation">
+        <xs:sequence>
+            <xs:element name="effectiveDateOfFinancialResponsibility" type="core:dateRange"/>
+            <xs:element name="financialResponsibilityParty" type="core:actor"/>
+        </xs:sequence>
+    </xs:complexType>
+        
+    <xs:complexType name="patientRelationshipToSubscriber">
+        <xs:annotation>
+            <xs:documentation>
+                Specifies only if the patient is the subscriber or dependent within the context
+                of the specified health plan.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:restriction base="core:codedValue">
+                <xs:attribute name="code" use="required">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="STUD"/>
+                            <xs:enumeration value="FSTUD"/>
+                            <xs:enumeration value="PSTUD"/>
+                            <xs:enumeration value="FAMDEP"/>
+                            <xs:enumeration value="HANDIC"/>
+                            <xs:enumeration value="INJ"/>
+                            <xs:enumeration value="SELF"/>
+                            <xs:enumeration value="SPON"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:attribute>
+                <xs:attribute name="displayName">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="student"/>
+                            <xs:enumeration value="full-time student"/>
+                            <xs:enumeration value="part-time student"/>
+                            <xs:enumeration value="family dependent"/>
+                            <xs:enumeration value="handicapped dependent"/>
+                            <xs:enumeration value="injured plaintiff"/>
+                            <xs:enumeration value="self"/>
+                            <xs:enumeration value="sponsored dependent"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:attribute>
+                <xs:attribute name="codeSystemName" type="xs:string" fixed="RoleCode" />
+                <xs:attribute name="codeSystem" type="xs:string" fixed="2.16.841.1.113883.5.111" use="required"/>
+            </xs:restriction>
+        </xs:complexContent>
+    </xs:complexType>    
+</xs:schema>

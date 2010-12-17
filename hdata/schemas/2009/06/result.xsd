@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  Copyright 2009 The MITRE Corporation 
+  
+  Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. 
+  You may obtain a copy of the License at 
+  
+  http://www.apache.org/licenses/LICENSE-2.0 
+  
+  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 
+  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific 
+  language governing permissions and limitations under the License. 
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+  elementFormDefault="qualified" 
+  targetNamespace="http://projecthdata.org/hdata/schemas/2009/06/result" 
+  xmlns:result="http://projecthdata.org/hdata/schemas/2009/06/result" 
+  xmlns:core="http://projecthdata.org/hdata/schemas/2009/06/core">
+  
+  <xs:import namespace="http://projecthdata.org/hdata/schemas/2009/06/core" schemaLocation="core_data_types.xsd"/>
+  <xs:include schemaLocation="result_types.xsd"/>
+  
+  <xs:element name="result">
+    <xs:annotation>
+      <xs:documentation>
+        This section is used to describe test results/vital signs.
+        
+        Element names map to HITSP Data Element Names in the HITSP C83, with the expcetion informationSource and narrative
+        
+        informationSource maps to the HITSP Information Source Content Module Specified in the C83
+        
+        narrative element referrs to narrative (human readable) style content. Usually a human readable version of the
+        encoded content.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="resultId" type="core:instanceIdentifier"/>
+        <xs:element name="resultDateTime" type="core:dateRange"/>
+        <xs:element name="resultType" type="result:resultType"/>
+        <xs:element name="resultStatus" type="core:statusCode"/>
+        <xs:element name="resultValue" type="xs:anyType"/><!-- CCD CONF-417: SHALL be expressed using UCUM expression when physical quantity -->
+        <xs:element name="resultInterpretation" type="core:codedValue" minOccurs="0"/>
+        <xs:element name="resultReferenceRange" type="result:resultReferenceRange" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="informationSource" type="core:informant" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="narrative" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>
