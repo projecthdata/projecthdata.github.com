@@ -1,0 +1,53 @@
+---
+layout: master
+title: hData Standardization 
+selected: standardization
+---
+<div id="content">
+    <div id="logo">
+        <a href="index.html"><img src="images/hData_logo.png" alt="hData Logo"></a>
+    </div>
+    <div class="projectDescription"><h2>Standardization</h2></div>
+    <div class="questionAnswer firstQuestion">
+        <div class="question">HL7 History</div>
+        <p>
+            <a href="http://www.hl7.org">HL7</a> International is an ANSI accredited standards development organization (SDO) that has been active for over 25 years. It has more than 35 country affiliates across the globe.
+            hData was first presented to a wider audience within HL7 as the September 2009 meeting in Atlanta, GA. Since then, hData has first been evalauted as a HL7 research project within the HL7 
+            <a href="http://wiki.hl7.org/index.php?title=ITS_WG">ITS working group</a>. The research project culminated in a "For Comment" ballot in January 2011. After a carefull analysis, HL7 decided to standardize hData 
+            hData under the leadership of the HL7 <a href="http://wiki.hl7.org/index.php?title=Service_Oriented_Architecture">SOA working group</a>. 
+        </p>
+    </div>
+    <div class="questionAnswer">
+        <div class="question">Relation to other HL7 activities</div>
+        <p>
+            Currently, there are two hData specifications within the HL7 standardization process: 
+            <ul>
+                <li>
+                    hData Record Format (HRF) – this specification specifies an abstract hierarchical organization, packaging, and meta data for individual documents (referred to as “Section Documents” within the HRF specification). Section Documents can be of any type, either XML documents (such as CDA documents, H7v3 messages, or simplified XML wire formats, etc.) or of other media types (such as e.g. MS Word documents or DICOM files). 
+                    Also contained in this specification is the format for specifying the content that goes into an hData record, which is called the hData Content Profile (HCP) format.
+                </li>
+                <li>
+                    hData RESTful API – this specification defines how the abstract hierarchical organization defined within the HRF specification is access and modified through a RESTful approach, using HTTP as the access protocol. It creates a unique mapping to an URL structure, and defines how HTTP verbs such as GET, PUT, DELETE, etc. affect the underlying information. 
+                </li>
+            </ul>
+        </p>
+        <p>
+            The hData specifications can be seen as a realization of the HL7/OMG SOA RLUS model. Through the HCP mechanism, they interact also with the Domain Analysts, who need to determine what 
+            content is appropriate to be included in a given hData Content Profile. The HCP also requires business justifications and behavioral modeling (where appropriate). 
+        </p>
+        <p>
+            The information identified by the domain analysts must be rendered into “exchangeable goods” – this process is governed by the applicable ITS. This is fairly straightforward when using 
+            the standard HL7 XML ITS, but future developments within the ITS WG may also allows simplified XML structures for wire-level exchanges. 
+        </p>
+        <p>
+            The following diagram illustrates the relationship between hData and other HL7 activities: 
+            <img width="800" src="/images/Relationships among groups and artifacts - hData additions-v3.png" />
+        </p>
+    </div>
+    
+    <div class="questionAnswer">
+        <div class="question">Schemas</div>
+        <p ><a href="http://github.com/projecthdata/hData/tree/master">Github project</a></p>
+    </div>
+</div>
+
