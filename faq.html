@@ -11,9 +11,10 @@ selected: faq
   <ul id="faqHeader">
   	<li><a href="#whatIshData">What is hData?</a></li>
   	<li><a href="#exchange">How will hData be used to exchange EHR health data?</a></li>
-  	<li><a href="#cost">How much does it cost to use hData?</a></li>
+  	<li><a href="#submitted">What is the standardization status of hData?</a></li>
+  	<li><a href="#rfh">How does hData relate to the recently proposed Resource For Healthcare idea?</a></li>
   	<li><a href="#license">What are the open source licensing details associated with hData?</a></li>
-  	<li><a href="#submitted">Will hData be submitted to a standards organization?</a></li>
+
   	<li><a href="#contribute">Can I contribute software source code to hData?</a></li>
   	<li><a href="#standards">What standards will hData use?</a></li>
     <li><a href="#vendor">Do I need to be an EHR vendor to use hData?</a></li>
@@ -23,34 +24,36 @@ selected: faq
   </ul>
   <div class="questionAnswer firstQuestion">
   	<div class="question" id="whatIshData">What is hData?</div>
-    <p>hData is a simple XML framework for the creation, storage, and exchange of health data. The core hData specification contains two components:</p>
+    <p>hData is a simple health IT exchange framework for the creation, storage, and exchange of health data. The core <a href="/documents.html#specifications">hData specifications</a> contains two components:</p>
   	<ol>
-      <li>hData Record Format (HRF): The HRF describes an abstract architecture of how data is stored in multiple XML documents and is organized in a hierarchy. It also contains a concrete schema for the HRF meta-data. Records conforming to the HRF are called hData Records (HDRs).</li>
-      <li>hData RESTful API (HRA): When the HRF is represented as a web resource, this RESTful specification allows for modifying section documents, creation of new data, record transport, and management of the entire record through a simple Web API.</li>
+      <li>HL7 hData Record Format (HRF): The HRF describes an abstract architecture of how data is stored in multiple XML documents and is organized in a hierarchy. It also contains a concrete schema for the HRF meta-data. Records conforming to the HRF are called hData Records (HDRs).</li>
+      <li>OMG hData RESTful Transport (HRA): When the HRF is represented as a web resource, this RESTful specification allows for modifying section documents, creation of new data, record transport, and management of the entire record through a simple Web API.</li>
     </ol>
-    <p>In addition to the above technical specification, hData uses Content Profiles (CP) to specify the actual content included in a particular hData record. These content profiles detail what fields are required to capture an allergy or condition. The philosophy is to use simple XML documents mapped directly to existing healthcare information models.</p>
-    <p>The hData project has initially Content Profiles for continuity of care as well as lab orders and results. It is expected that Content Profiles will be submitted to standards organizations. Additionally, it is assumed that Content Profiles will be created to address different medical domains.</p>
+    <p>In addition to the above technical specification, hData uses hData Content Profiles (HCP) to specify the actual content included in a particular hData record. These content profiles detail what fields are required to capture an allergy or condition. The philosophy is to use simple XML documents mapped directly to existing healthcare information models. For the purposes of compliance with the <a href="http://www.niem.gov/">National Information Exchange Model (NIEM)</a> lifecycle process, an hData Content Profile may be understood to be a specialization of the NIEM Information Exchange Package Documentation (IEPD).</p>
+    <p>The hData project had initially created schemas for a Continuity of Care Content Profile, as well as lab orders and results. It is expected that Content Profiles will be submitted to standards organizations. Additionally, it is assumed that Content Profiles will be created to address different medical domains.</p>
   </div>
   <div class="questionAnswer">
   	<div class="question" id="exchange">How will hData be used to exchange EHR health data?</div>
-    <p>At its core, hData is a simple way of organizing data into small pieces in folders, with a corresponding set of XML Schema to describe the small pieces. Because of this simplicity, it is easy to exchange information using hData. Currently hData can exchange data through two mechanisms:</p>
-    <ol>
-      <li><a href="http://en.wikipedia.org/wiki/REST" target="_external">RESTful Services</a> - A Health IT system may provide RESTful web services to access hData.</li>
-      <li><a href="http://en.wikipedia.org/wiki/Zip_file" target="_external">Zip File</a> - All of the information to be contained in an hData Record can be Zip filed. That Zip file can then be emailed, placed on a USB thumb drive, etc.</li>
-    </ol>
+    <p>At its core, hData is a simple way of organizing data into small pieces in folders, with a corresponding set of XML Schemas or other appripriate media types (such as e.g. PDFs, PNGs, or DICOM containers) to describe the small pieces. Because of this simplicity, it is easy to exchange information using hData.</p>
+    <p>Currently, hData has one <a href="http://en.wikipedia.org/wiki/REST" target="_external">RESTful</a> transport binding, which is being standardized at the Object Management Group.Future transports may include SMTP or XMPP transports. </p>
   </div>
   <div class="questionAnswer">
-  	<div class="question" id="cost">How much does it cost to use hData?</div>
-    <p>hData is a free open source XML standards project; there is no cost to use the hData XML schema.</p>
+  	<div class="question" id="submitted">What is the standardization status of hData?</div>
+  	<p>Please check the <a href="/standardization.html">Standardization</a> page for a detailed status. The goal is to make all of hData a nationally and internationally recognized standard.</p>
+  </div>
+  <div class="questionAnswer">
+  	<div class="question" id="rfh">How does hData relate to the recently proposed Resource For Healthcare idea?</div>
+    <p><a href="http://www.healthintersections.com.au/rfh/introduction.htm">Resources For Healthcare (RFH)</a> was recently (09-2011) proposed as a reponse to the HL7 Fresh Look Task Force question: "How would a complete health IT software stack look like, if HL7 re-did it today?"</p>
+    <img src="/images/RFH View.png" width="250px" style="float:right" /> 
+    <p>Conceptually, RFH is using a RESTful transport to allow the exchange of the simplified content. There is a signficant overlap with hData of the way transport within the RFH proposal is realized, so that it should be quite easy to reformulate RFH in hData terms. Based on discussions with the RFH authors, they are starting to find similar issues that drove hData development (such as metadata definition) - these problems have largely been solved within hData.</p>
+    <p>Going forward, the RFH content model can be understood as a hData Content profile. </p>
+    </p>
   </div>
   <div class="questionAnswer">
   	<div class="question" id="license">What are the open source licensing details associated with hData?</div>
   	<p>hData is licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_external">Apache 2.0 open source license</a>.</p>
   </div>
-  <div class="questionAnswer">
-  	<div class="question" id="submitted">Will hData be submitted to a standards organization?</div>
-  	<p>Yes. hData has been submitted to <a href="http://www.hl7.org/" target="_external">HL7</a>. It is currently under discussion in the <a href="http://wiki.hl7.org/index.php?title=ITS_WG" target="_external">ITS Work Group</a>.</p>
-  </div>
+  
   <div class="questionAnswer">
   	<div class="question" id="contribute">Can I contribute software source code to hData?</div>
   	<p>Code contributions will be accepted to hData as bug fixes and new feature proposals.</p>
