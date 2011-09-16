@@ -12,14 +12,12 @@ selected: faq
   	<li><a href="#whatIshData">What is hData?</a></li>
   	<li><a href="#exchange">How will hData be used to exchange EHR health data?</a></li>
   	<li><a href="#submitted">What is the standardization status of hData?</a></li>
-  	<li><a href="#rfh">How does hData relate to the recently proposed Resource For Healthcare idea?</a></li>
-  	<li><a href="#license">What are the open source licensing details associated with hData?</a></li>
-
-  	<li><a href="#contribute">Can I contribute software source code to hData?</a></li>
-  	<li><a href="#standards">What standards will hData use?</a></li>
+  	<li><a href="#rfh">How does hData relate to the recently proposed Resources For Healthcare idea?</a></li>
+  	<li><a href="#simple">Isn't hData all about simplified data models, XML, and that stuff?</a></li>
+  	<li><a href="#using">Who is using hData?</a></li>
+  	<li><a href="#models">Where will all the data models and their rendering come from?</a></li>
     <li><a href="#vendor">Do I need to be an EHR vendor to use hData?</a></li>
     <li><a href="#languages">What programming languages will hData use?</a></li>
-    <li><a href="#background">What is the background of hData?</a></li>
     <li><a href="#significance">What is the significance of the name hData?</a></li>
   </ul>
   <div class="questionAnswer firstQuestion">
@@ -39,29 +37,28 @@ selected: faq
   </div>
   <div class="questionAnswer">
   	<div class="question" id="submitted">What is the standardization status of hData?</div>
-  	<p>Please check the <a href="/standardization.html">Standardization</a> page for a detailed status. The goal is to make all of hData a nationally and internationally recognized standard.</p>
+  	<p>hData has been reviewed by HL7 and OMG and is in the process of becoming a normative standarf. Please check the <a href="/standardization.html">Standardization</a> page for a detailed status. </p>
   </div>
   <div class="questionAnswer">
-  	<div class="question" id="rfh">How does hData relate to the recently proposed Resource For Healthcare idea?</div>
+  	<div class="question" id="rfh">How does hData relate to the recently proposed Resource For Healthcare idea?</div><img src="/images/RFH View.png" width="250px" style="float:right" />
     <p><a href="http://www.healthintersections.com.au/rfh/introduction.htm">Resources For Healthcare (RFH)</a> was recently (09-2011) proposed as a reponse to the HL7 Fresh Look Task Force question: "How would a complete health IT software stack look like, if HL7 re-did it today?"</p>
-    <img src="/images/RFH View.png" width="250px" style="float:right" /> 
+     
     <p>Conceptually, RFH is using a RESTful transport to allow the exchange of the simplified content. There is a signficant overlap with hData of the way transport within the RFH proposal is realized, so that it should be quite easy to reformulate RFH in hData terms. Based on discussions with the RFH authors, they are starting to find similar issues that drove hData development (such as metadata definition) - these problems have largely been solved within hData.</p>
-    <p>Going forward, the RFH content model can be understood as a hData Content profile. </p>
+    <p>Going forward, the RFH content model can be understood as a hData Content profile. This will require some work on the OMG hData RESTful Transport, and the formulation of a comprehensive HCP covering the RFH data model. </p>
     </p>
   </div>
   <div class="questionAnswer">
-  	<div class="question" id="license">What are the open source licensing details associated with hData?</div>
-  	<p>hData is licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_external">Apache 2.0 open source license</a>.</p>
-  </div>
-  
-  <div class="questionAnswer">
-  	<div class="question" id="contribute">Can I contribute software source code to hData?</div>
-  	<p>Code contributions will be accepted to hData as bug fixes and new feature proposals.</p>
+  	<div class="question" id="simple">Isn't hData all about simplified data models, XML, and that stuff?</div>
+  	<p>When hData was started by MITRE, one of the guiding principles in creating hData was (and still is!) developer friendliness and simple-to-implement. Part of this approach was to create a number of HITSP C32 derived schemas covering a simple continuity of care profile. When we created these schemas (which are still available in the github repository) we understood them to be placeholders for simplified schemas and models derived from a comprehensive clinical information model through a more rigourous process.</p>
+  	<p>With the advent of HL7 greeCDA, RFH, DCMs, and similar approaches, HL7 is now able to start developing such simplified models that can be vetted by the clinical subject matter experts.</p>
   </div>
   <div class="questionAnswer">
-  	<div class="question" id="standards">What standards will hData use?</div>
-  	<p>hData is built using <a href="http://www.w3.org/XML/" target="_external">XML</a>, using <a href="http://www.w3.org/XML/Schema" target="_external">W3C XML Schema</a> to specify the grammar. The structure of hData closely resembles the <a href="http://en.wikipedia.org/wiki/OpenDocument" target="_external">OpenDocument Format</a>.</p>
-    <p>hData can be used to meet a number of health data needs, but initially, we are focusing on Continuity of Care. As such, much of the data vocabularies defined in hData model themselves after the <a href="http://en.wikipedia.org/wiki/Continuity_of_Care_Document" target="_external">HL7 CCD</a> and <a href="http://www.astm.org/Standards/E2369.htm" target="_external">ASTM CCR</a>.</p>
+  	<div class="question" id="using">Who is using hData?</div>
+  	<p>Since hData was until recently actively being developed from a standards perspective, there have so far been only a few limited proof-of-concepts and pilots. As hData is now stablizing, there are a number of projects starting to use hData. At the September 2011 workgroup meeting, the HL7 SOA and Pharmacy workgroups have agreed to create an hData content profile for Pharmacy. This work will be sponsored by epSOS, Cerner, MITRE, and others. Other projects are expected to follow soon. </p>
+  </div>
+  <div class="questionAnswer">
+  	<div class="question" id="models">Where will all the data models and their rendering come from?</div>
+  	<p>hData seprates the technical framework (packaging, metadata, transport, security, etc.) strongly from the content modeling aspect of health IT. As a result, the hData specification are largely content agnostic and will rely on clinical subject matter experts and data modelers to create hData Content Profiles specifying the payload model and rendering. This can happen at a variety of places, including within the domain specific working groups with existing standards development organizations, such as HL7. In fact, this process has already started, with the Pharmacy WG at HL7 agreeing to create an hData Content Profile for a medications service. Other workgroups are expected to follow soon. </p>
   </div>
   <div class="questionAnswer">
   	<div class="question" id="vendor">Do I need to be an EHR vendor to use hData?</div>
@@ -70,14 +67,6 @@ selected: faq
   <div class="questionAnswer">
   	<div class="question" id="languages">What programming languages will hData use?</div>
     <p>hData is based on XML, so it can be used with virtually any programming language. The MITRE team is working on developer kits in <a href="http://www.ruby-lang.org/en/" target="_external">Ruby</a> and <a href="http://www.java.com/en/" target="_external">Java</a>. The hData project will gladly accept any contributions for generating or consuming hData in other programming languages.</p>
-  </div>
-  <div class="questionAnswer">
-  	<div class="question" id="background">What is the background of hData?</div>
-  	<p>Electronic documentation of health care data is currently at the heart of the U.S. national discussion on healthcare reform. Electronic health records (EHRs) have the potential to increase physician efficiency, reduce costs, and promote standardized care. However, health data exchange interoperability and other usability issues have plagued system-wide adoption and have thus limited the expected benefits. hData offers a solution to these problems by using a simple XML framework for the creation, storage, and exchange of health data.</p>
-    <p>Standards development of EHRs began with Health Level Seven (HL7) in the late 1980s. HL7, comprised of healthcare subject matter experts and information scientists, developed standards for the exchange, management, and integration of electronic healthcare information. The group first created the clinical document architecture (CDA), which was designed to address most of the documentation needs of any health care system. Consequently, this approach made the schema extremely flexible but overly complex, hard to implement interoperably, and difficult to manage. Around the same time, in a separate effort, a simplified continuity of care record (CCR)--not based on the CDA-- was created. Eventually, ASTM International, a highly regarded standards organization, adopted the CCR as its continuity of care record standard.</p>
-    <p>Later, HL7 reconciled its standards with ASTM by taking data elements from the CCR and encoding them in the CDA, resulting in a new standard called the Continuity of Care Document (CCD). The American National Standards Institute (ANSI) and its affiliated Health Information Technology Standards Panel (HITSP) recommended the CCD as an input standard for creating a national continuity of care standard. The result was initially published as the HITSP Construct 32 standard (C32), which has since expanded and grown more complex.</p>
-    <p>CDA, C32, and related standards contain a number of significant shortfalls. These include the repeated use of overly abstract data structures and underspecified implementation, including lack of normative schema, lack of a clearly profiled code system, and imprecise data types. HITSP has recognized the complexity of these existing standards and completed an effort to “streamline” documentation on how to use them. However, while this document reordering may provide some help, exchanging continuity of care information will still take place in the same overly complex format, and the entire existing HITSP framework is not always able to deliver a comprehensive, interoperable set of specifications.</p>
-    <p>hData was created to address these shortcomings. hData lowers the barrier to Health IT integration by focusing on ease of implementation.</p>
   </div>
   <div class="questionAnswer">
   	<div class="question" id="significance">What is the significance of the name hData?</div>
