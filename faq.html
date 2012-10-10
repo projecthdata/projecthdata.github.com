@@ -22,7 +22,7 @@ selected: faq
   </ul>
   <div class="questionAnswer firstQuestion">
   	<div class="question" id="whatIshData">What is hData?</div>
-    <p>hData is a simple health IT exchange framework for the creation, storage, and exchange of health data. The core <a href="/documents.html#specifications">hData specifications</a> contains two components:</p>
+    <p>hData is a simple health IT exchange framework for the creation, storage, and exchange of health data. The core <a href="/documents.html#specifications">hData specifications</a> contain two components:</p>
   	<ol>
       <li>HL7 hData Record Format (HRF): The HRF describes an abstract architecture of how data is stored in multiple XML documents and is organized in a hierarchy. It also contains a concrete schema for the HRF meta-data. Records conforming to the HRF are called hData Records (HDRs).</li>
       <li>OMG hData RESTful Transport (HRA): When the HRF is represented as a web resource, this RESTful specification allows for modifying section documents, creation of new data, record transport, and management of the entire record through a simple Web API.</li>
@@ -32,16 +32,16 @@ selected: faq
   </div>
   <div class="questionAnswer">
   	<div class="question" id="exchange">How will hData be used to exchange EHR health data?</div>
-    <p>At its core, hData is a simple way of organizing data into small pieces in folders, with a corresponding set of XML Schemas or other appripriate media types (such as e.g. PDFs, PNGs, or DICOM containers) to describe the small pieces. Because of this simplicity, it is easy to exchange information using hData.</p>
-    <p>Currently, hData has one <a href="http://en.wikipedia.org/wiki/REST" target="_external">RESTful</a> transport binding, which is being standardized at the Object Management Group.Future transports may include SMTP or XMPP transports. </p>
+    <p>At its core, hData is a simple way of organizing data into small pieces in folders, with a corresponding set of XML Schemas or other appropriate media types (such as e.g. PDFs, PNGs, or DICOM containers) to describe the small pieces. Because of this simplicity, it is easy to exchange information using hData.</p>
+    <p>Currently, hData has one <a href="http://en.wikipedia.org/wiki/REST" target="_external">RESTful</a> transport binding, which is being standardized at the Object Management Group. Future transports may include SMTP or XMPP transports. </p>
   </div>
   <div class="questionAnswer">
   	<div class="question" id="submitted">What is the standardization status of hData?</div>
-  	<p>hData has been reviewed by HL7 and OMG and is in the process of becoming a normative standarf. Please check the <a href="/standardization.html">Standardization</a> page for a detailed status. </p>
+  	<p>hData has been reviewed by HL7 and OMG and is in the process of becoming a normative standard. Please check the <a href="/standardization.html">Standardization</a> page for a detailed status. </p>
   </div>
   <div class="questionAnswer">
   	<div class="question" id="rfh">How does hData relate to the recently proposed Resource For Healthcare idea?</div><img src="/images/RFH View.png" width="250px" style="float:right" />
-    <p><a href="http://www.healthintersections.com.au/rfh/introduction.htm">Resources For Healthcare (RFH)</a> was recently (09-2011) proposed as a reponse to the HL7 Fresh Look Task Force question: "How would a complete health IT software stack look like, if HL7 re-did it today?"</p>
+    <p><a href="http://www.healthintersections.com.au/rfh/introduction.htm">Resources For Healthcare (RFH)</a> was recently (09-2011) proposed as a reponse to the HL7 Fresh Look Task Force question: "What would a complete health IT software stack look like, if HL7 re-did it today?"</p>
      
     <p>Conceptually, RFH is using a RESTful transport to allow the exchange of the simplified content. There is a signficant overlap with hData of the way transport within the RFH proposal is realized, so that it should be quite easy to reformulate RFH in hData terms. Based on discussions with the RFH authors, they are starting to find similar issues that drove hData development (such as metadata definition) - these problems have largely been solved within hData.</p>
     <p>Going forward, the RFH content model can be understood as a hData Content profile. This will require some work on the OMG hData RESTful Transport, and the formulation of a comprehensive HCP covering the RFH data model. </p>
@@ -50,7 +50,7 @@ selected: faq
   <div class="questionAnswer">
   	<div class="question" id="simple">Isn't hData all about simplified data models, XML, and that stuff?</div>
   	<p>When hData was started by MITRE, one of the guiding principles in creating hData was (and still is!) developer friendliness and simple-to-implement. Part of this approach was to create a number of HITSP C32 derived schemas covering a simple continuity of care profile. When we created these schemas (which are still available in the github repository) we understood them to be placeholders for simplified schemas and models derived from a comprehensive clinical information model through a more rigourous process.</p>
-  	<p>With the advent of HL7 greeCDA, RFH, DCMs, and similar approaches, HL7 is now able to start developing such simplified models that can be vetted by the clinical subject matter experts.</p>
+  	<p>With the advent of HL7 greenCDA, RFH, DCMs, and similar approaches, HL7 is now able to start developing such simplified models that can be vetted by the clinical subject matter experts.</p>
   </div>
   <div class="questionAnswer">
   	<div class="question" id="using">Who is using hData?</div>
@@ -58,7 +58,7 @@ selected: faq
   </div>
   <div class="questionAnswer">
   	<div class="question" id="models">Where will all the data models and their rendering come from?</div>
-  	<p>hData seprates the technical framework (packaging, metadata, transport, security, etc.) strongly from the content modeling aspect of health IT. As a result, the hData specification are largely content agnostic and will rely on clinical subject matter experts and data modelers to create hData Content Profiles specifying the payload model and rendering. This can happen at a variety of places, including within the domain specific working groups with existing standards development organizations, such as HL7. In fact, this process has already started, with the Pharmacy WG at HL7 agreeing to create an hData Content Profile for a medications service. Other workgroups are expected to follow soon. </p>
+  	<p>hData separates the technical framework (packaging, metadata, transport, security, etc.) strongly from the content modeling aspect of health IT. As a result, the hData specifications are largely content agnostic and will rely on clinical subject matter experts and data modelers to create hData Content Profiles specifying the payload model and rendering. This can happen at a variety of places, including within the domain specific working groups with existing standards development organizations, such as HL7. In fact, this process has already started, with the Pharmacy WG at HL7 agreeing to create an hData Content Profile for a medications service. Other workgroups are expected to follow soon. </p>
   </div>
   <div class="questionAnswer">
   	<div class="question" id="vendor">Do I need to be an EHR vendor to use hData?</div>
