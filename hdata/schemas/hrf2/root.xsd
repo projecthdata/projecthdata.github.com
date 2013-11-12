@@ -1,12 +1,15 @@
 <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" 
-targetNamespace="http://www.projecthdata.org/hdata/schemas/hdata/hrf2/root" 
+targetNamespace="http://hl7.org/schemas/hdata/2013/08/hrf" 
 xmlns:xs="http://www.w3.org/2001/XMLSchema"
-xmlns:hrf="http://www.projecthdata.org/hdata/schemas/hdata/hrf2/root">
+xmlns:hrf="http://hl7.org/schemas/hdata/2013/08/hrf">
 
 <xs:element type="xs:string" name="id"/>
 <xs:element type="xs:float" name="version"/>
 <xs:element type="xs:dateTime" name="created"/>
 <xs:element type="xs:dateTime" name="lastModified"/>
+<xs:element type="xs:string" name="name"/>
+<xs:element type="xs:anyURI" name="uri"/>
+<xs:element type="xs:string" name="email"/>
 <xs:element type="xs:string" name="reference"/>
 <xs:element type="xs:string" name="path"/>
 <xs:element type="xs:string" name="profileID"/>
@@ -22,7 +25,17 @@ xmlns:hrf="http://www.projecthdata.org/hdata/schemas/hdata/hrf2/root">
     <xs:any namespace="##local" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
   </xs:sequence>
 </xs:group>
- 
+
+<xs:element name="author">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element ref="hrf:name"/>
+      <xs:element ref="hrf:uri" minOccurs="0"/>
+	  <xs:element ref="hrf:email" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+
 <xs:element name="profile">
   <xs:complexType>
     <xs:sequence>
@@ -68,7 +81,7 @@ xmlns:hrf="http://www.projecthdata.org/hdata/schemas/hdata/hrf2/root">
   </xs:complexType>
 </xs:element>
 
-<xs:element name="Root">
+<xs:element name="root">
   <xs:complexType>
     <xs:sequence>
       <xs:element ref="hrf:id"/>
@@ -81,5 +94,21 @@ xmlns:hrf="http://www.projecthdata.org/hdata/schemas/hdata/hrf2/root">
       <xs:group ref="hrf:extensionElement" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
+  <xs:key name="PKResourceType">
+    <xs:selector xpath="hrf:resourceType/hrf:id"/>
+    <xs:field xpath="."/>
+  </xs:key>
+  <xs:keyref name="FKSectionToResourceType" refer="hrf:PKResourceType">
+    <xs:selector xpath="hrf:section/hrf:resourceTypeID"/>
+    <xs:field xpath="."/>
+  </xs:keyref>
+  <xs:key name="PKProfile">
+    <xs:selector xpath="hrf:profile/hrf:id"/>
+    <xs:field xpath="."/>
+  </xs:key>
+  <xs:keyref name="FKSectionToProfile" refer="hrf:PKProfile">
+    <xs:selector xpath="hrf:section/hrf:profileID"/>
+    <xs:field xpath="."/>
+  </xs:keyref>
 </xs:element>
 </xs:schema>
